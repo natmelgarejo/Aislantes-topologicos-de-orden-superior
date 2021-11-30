@@ -1,0 +1,6 @@
+# archivo: _toc.yml
+format: jb-book
+root:   inicio
+chapters:
+- file: HOTI_3D_Natali_
+- file: HOTI3D_TFloquet

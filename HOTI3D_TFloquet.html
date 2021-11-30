@@ -1,0 +1,646 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teoría de Floquet &#8212; Aislantes topológicos de orden superior</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Aislantes topológicos de orden superior" href="HOTI_3D_Natali_.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/FQ-bw.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Aislantes topológicos de orden superior</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="inicio.html">
+   Bienvenidos
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="HOTI_3D_Natali_.html">
+   Aislantes topológicos de orden superior
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Teoría de Floquet
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/HOTI3D_TFloquet.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/HOTI3D_TFloquet.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Teoría de Floquet
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#teoria-de-floquet-aplicada-a-nuestro-hamiltoniano-h-4-k">
+   Teoría de Floquet aplicada a nuestro Hamiltoniano
+   <span class="math notranslate nohighlight">
+    \(H_4(k)\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelo-finito">
+   Modelo finito
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture
+!pip install pythtb
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">pythtb</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;style&gt;.container { width:100% !important; }&lt;/style&gt;&quot;</span><span class="p">))</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>.container { width:100% !important; }</style></div></div>
+</div>
+<p>El siguiente paso en el trabajo de investigación es la inclusión de la interacción en el Hamiltoniano  con un potencial escalar periódico en el tiempo. Por lo que se utilizará la Teoría de Floquet</p>
+<div class="tex2jax_ignore mathjax_ignore section" id="teoria-de-floquet">
+<h1>Teoría de Floquet<a class="headerlink" href="#teoria-de-floquet" title="Permalink to this headline">¶</a></h1>
+<p>Estudia sistemas cuánticos descritos por hamiltonianos periódicos en el tiempo, <span class="math notranslate nohighlight">\(H(t) = H (t + \mathcal{T})\)</span>, de modo que la ecuación de Schrödinger correspondiente es: \
+\begin{equation}
+\bigg ( H (r,t) - i\hbar\frac{\delta}{\delta t} \bigg ) \Psi(r,t) = 0,.
+\end{equation}
+El teorema de Floquet establece que existen soluciones para la ecuación anterior de la forma:
+\begin{equation}
+\Psi (r,t) = e^{\frac{-i \epsilon t}{\hbar}} \Phi (r,t),,
+\end{equation}</p>
+<p>donde <span class="math notranslate nohighlight">\(\Phi\)</span> es una función periódica en el tiempo con el mismo período del Hamiltoniano, <span class="math notranslate nohighlight">\(\Phi(\mathbf{r},t) = \Phi(\mathbf{r},t + T)\)</span>. y <span class="math notranslate nohighlight">\(\epsilon\)</span> es un parámetro real que se denomina cuasi-energía.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="teoria-de-floquet-aplicada-a-nuestro-hamiltoniano-h-4-k">
+<h1>Teoría de Floquet aplicada a nuestro Hamiltoniano <span class="math notranslate nohighlight">\(H_4(k)\)</span><a class="headerlink" href="#teoria-de-floquet-aplicada-a-nuestro-hamiltoniano-h-4-k" title="Permalink to this headline">¶</a></h1>
+<p>\begin{align}
+H_4({k},wt) = &amp;\bigg(  \mu_0+\Theta \sum_i\cos (k_i a) + \mu_1 \cos(wt)  \bigg)\tau_z\sigma_0 +\Delta_1\sum_i \sin (k_i a)\tau_x\sigma_i \nonumber +\Delta_2 \big[\cos (k_x a)-\cos (k_y a)\big]\tau_y\sigma_0\
+\end{align}</p>
+<p>Experimentalmente, el término <span class="math notranslate nohighlight">\(\mu_1cos(wt)\)</span> correspondería a someter al material a una diferencia de potencial externo; por ejemplo, estre dos placas de un capacitor.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;bitmap.png&quot;</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">400</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/HOTI3D_TFloquet_8_0.png" src="_images/HOTI3D_TFloquet_8_0.png" />
+</div>
+</div>
+<p>Partiendo del Hamiltoniano en el espacio recíproco que describe a nuestro sistema. Aplicando la teoría de Floquet, obtenemos los elementos de matriz en función del tiempo. Utilizando los téminos mostrados a continuación podemos escribir la matriz asociada al operador de Floquet, HF, obteniendo así nuestra matriz infinita la cual está compuesta por réplicas (n’,n), en otras palabras, esta asociado a términos de Fourier.</p>
+<p>\begin{align}
+H_4^{n,n}({k},\omega t) = \bigg( \mu_0+\Theta \sum_{i=x,y,z}\cos (k_i a)  \bigg) \tau_z\sigma_0
++\Delta_1\sum_{i=x,y,z} \sin (k_i a) \tau_x\sigma_i
++\Delta_2 \big[\cos (k_x a)-\cos (k_y a)\big]\tau_y\sigma_0 - n\hbar\omega
+\end{align}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;Matriz infinita.png&quot;</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">400</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/HOTI3D_TFloquet_11_0.png" src="_images/HOTI3D_TFloquet_11_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lat</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">]]</span> 
+<span class="n">orb</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">nrepl</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">nrepl</span><span class="p">,</span><span class="n">nrepl</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span> 
+  <span class="n">orb</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="n">n</span><span class="p">]</span> <span class="p">)</span>
+  <span class="n">orb</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span><span class="n">n</span><span class="p">]</span> <span class="p">)</span>
+  <span class="n">orb</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="n">n</span><span class="p">]</span> <span class="p">)</span>
+  <span class="n">orb</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="p">[</span><span class="mi">3</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span><span class="n">n</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parámetros del modelo</span>
+<span class="n">µ0</span> <span class="o">=</span> <span class="mf">2.0</span>
+<span class="n">µ1</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="c1"># 0.1</span>
+<span class="n">Θ</span>  <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">Δ1</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">Δ2</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">ħω</span> <span class="o">=</span> <span class="mf">0.2</span> <span class="c1"># 0.2</span>
+
+
+<span class="n">my_model</span> <span class="o">=</span> <span class="n">tb_model</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">lat</span><span class="p">,</span><span class="n">orb</span><span class="p">)</span>  
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">onsite</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">nrepl</span><span class="p">,</span><span class="n">nrepl</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+  <span class="n">onsite</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">µ0</span><span class="o">+</span><span class="n">n</span><span class="o">*</span><span class="n">ħω</span> <span class="p">)</span>
+  <span class="n">onsite</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">-</span><span class="n">µ0</span><span class="o">+</span><span class="n">n</span><span class="o">*</span><span class="n">ħω</span> <span class="p">)</span>
+  <span class="n">onsite</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">µ0</span><span class="o">+</span><span class="n">n</span><span class="o">*</span><span class="n">ħω</span> <span class="p">)</span>
+  <span class="n">onsite</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">-</span><span class="n">µ0</span><span class="o">+</span><span class="n">n</span><span class="o">*</span><span class="n">ħω</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">onsite</span><span class="p">))</span>
+<span class="n">my_model</span><span class="o">.</span><span class="n">set_sites</span><span class="p">(</span> <span class="n">onsite</span> <span class="p">)</span>
+
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">arange</span><span class="p">(</span> <span class="mi">0</span><span class="p">,(</span><span class="n">nrepl</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span> <span class="p">):</span>
+  <span class="c1"># Hoppings sin dependencia temporal</span>
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span>  <span class="n">Θ</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">0</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>  
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span>  <span class="n">Θ</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">0</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span>  <span class="n">Θ</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">0</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span> <span class="o">-</span><span class="n">Θ</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span> <span class="o">-</span><span class="n">Θ</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span> <span class="o">-</span><span class="n">Θ</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span>  <span class="n">Θ</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">2</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span>  <span class="n">Θ</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">2</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span>  <span class="n">Θ</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">2</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span> <span class="o">-</span><span class="n">Θ</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">3</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span> <span class="o">-</span><span class="n">Θ</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">3</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span> <span class="o">-</span><span class="n">Θ</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">3</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span>    <span class="n">Δ1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="n">J</span><span class="p">),</span> <span class="mi">0</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span>   <span class="o">-</span><span class="n">Δ1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="n">J</span><span class="p">),</span> <span class="mi">0</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span> <span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="n">J</span><span class="o">*</span><span class="n">Δ2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span> <span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="n">J</span><span class="o">*</span><span class="n">Δ2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span> <span class="o">+</span><span class="p">(</span><span class="mi">1</span><span class="n">J</span><span class="o">*</span><span class="n">Δ2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span> <span class="o">+</span><span class="p">(</span><span class="mi">1</span><span class="n">J</span><span class="o">*</span><span class="n">Δ2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span>    <span class="n">Δ1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="n">J</span><span class="p">),</span> <span class="mi">0</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">3</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span>   <span class="o">-</span><span class="n">Δ1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="n">J</span><span class="p">),</span> <span class="mi">0</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">3</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="c1">#Done</span>
+
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span>      <span class="o">-</span><span class="n">Δ1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">3</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span>      <span class="o">+</span><span class="n">Δ1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">3</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span>    <span class="n">Δ1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="n">J</span><span class="p">),</span> <span class="mi">1</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">2</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="c1">#k</span>
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span>   <span class="o">-</span><span class="n">Δ1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="n">J</span><span class="p">),</span> <span class="mi">1</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">2</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span>      <span class="o">-</span><span class="n">Δ1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">2</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span>      <span class="o">+</span><span class="n">Δ1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">2</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span>  <span class="o">+</span><span class="p">(</span><span class="mi">1</span><span class="n">J</span><span class="o">*</span><span class="n">Δ2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">2</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span>  <span class="o">+</span><span class="p">(</span><span class="mi">1</span><span class="n">J</span><span class="o">*</span><span class="n">Δ2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">2</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span>  <span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="n">J</span><span class="o">*</span><span class="n">Δ2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">2</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span>  <span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="n">J</span><span class="o">*</span><span class="n">Δ2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">2</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span>  <span class="o">-</span><span class="n">Δ1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="n">J</span><span class="p">),</span> <span class="mi">3</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">2</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span>  <span class="o">+</span><span class="n">Δ1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="n">J</span><span class="p">),</span> <span class="mi">3</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">2</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">arange</span><span class="p">(</span> <span class="mi">0</span><span class="p">,(</span><span class="n">nrepl</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span> <span class="p">):</span>
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span>  <span class="n">µ1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">0</span><span class="o">+</span><span class="mi">4</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="p">)</span> 
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span> <span class="o">-</span><span class="n">µ1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">1</span><span class="o">+</span><span class="mi">4</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="p">)</span>
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span>  <span class="n">µ1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">2</span><span class="o">+</span><span class="mi">4</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="p">)</span>
+  <span class="n">my_model</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span> <span class="o">-</span><span class="n">µ1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="mi">3</span><span class="o">+</span><span class="mi">4</span><span class="o">+</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>36
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SinTiempo</span> <span class="o">=</span> <span class="n">my_model</span><span class="o">.</span><span class="n">cut_piece</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">glue_edgs</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># camino en el espacio recíproco</span>
+<span class="n">path</span><span class="o">=</span><span class="p">[</span> <span class="p">[</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">,</span><span class="mf">0.0</span><span class="p">],</span> <span class="c1"># Gamma</span>
+        <span class="p">[</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">,</span><span class="mf">0.0</span><span class="p">],</span> <span class="c1"># X</span>
+        <span class="p">[</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span> <span class="p">,</span><span class="mf">0.0</span><span class="p">],</span> <span class="c1"># XY</span>
+        <span class="p">[</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="c1"># Y</span>
+        <span class="p">[</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="c1"># YZ</span>
+        <span class="p">[</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="c1"># Z</span>
+        <span class="p">[</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span> <span class="p">]</span>
+<span class="n">k_label</span> <span class="o">=</span> <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\Gamma$&#39;</span><span class="p">,</span>
+           <span class="sa">r</span><span class="s1">&#39;$X$&#39;</span><span class="p">,</span>
+           <span class="sa">r</span><span class="s1">&#39;$XY$&#39;</span><span class="p">,</span> 
+           <span class="sa">r</span><span class="s1">&#39;$Y$&#39;</span><span class="p">,</span>
+           <span class="sa">r</span><span class="s1">&#39;$YZ$&#39;</span><span class="p">,</span>
+           <span class="sa">r</span><span class="s1">&#39;$Z$&#39;</span><span class="p">,</span>
+           <span class="sa">r</span><span class="s1">&#39;$\Gamma$&#39;</span><span class="p">)</span>
+<span class="p">(</span><span class="n">k_vec</span><span class="p">,</span><span class="n">k_dist</span><span class="p">,</span><span class="n">k_node</span><span class="p">)</span> <span class="o">=</span> <span class="n">SinTiempo</span><span class="o">.</span><span class="n">k_path</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="mi">1001</span><span class="p">,</span> <span class="n">report</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ek</span><span class="p">,</span><span class="n">U</span> <span class="o">=</span> <span class="n">SinTiempo</span><span class="o">.</span><span class="n">solve_all</span><span class="p">(</span><span class="n">k_vec</span><span class="p">,</span><span class="n">eig_vectors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shape</span><span class="p">(</span><span class="n">Ek</span><span class="p">)</span>
+<span class="n">nband</span><span class="p">,</span><span class="n">nk</span> <span class="o">=</span> <span class="n">shape</span><span class="p">(</span><span class="n">Ek</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Se observa el comportamiento correspondiente a los niveles sin absorción o emisión de fotones; es decir, el peso de la réplica 0, que a continuación denotaremos como la función <strong>enmedio</strong>. El peso de la replica 0 corresponderá a los coeficientes al cuadrado de dichos valores.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejemplo: repl=4</span>
+<span class="c1"># Tenemos -4,-3,-2,-1,0,1,2,3,4 (9 replicas)</span>
+<span class="c1"># Esperariamos observar únicamento el comportamiento correspondiente</span>
+<span class="c1"># a los niveles sin absorción o emisión de fotones; es decir, el peso </span>
+<span class="c1"># de la réplica 0</span>
+
+<span class="c1"># Nos damos cuenta que los eigenvectores tienen</span>
+<span class="c1"># 36 componentes</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">[0,1,2,3,     # replica -4</span>
+<span class="sd"> 4,5,6,7,     # replica -3</span>
+<span class="sd"> 8, 9,10,11,  # replica -2</span>
+<span class="sd"> 12,13,14,15, # replica -1</span>
+<span class="sd"> 16,17,18,19, # replica 0</span>
+<span class="sd"> 20,21,22,23, # replica 1</span>
+<span class="sd"> 24,25,26,27, # replica 2</span>
+<span class="sd"> 28,29,30,31, # replica 3</span>
+<span class="sd"> 32,33,34,35] # replica 4</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="c1"># El peso de la replica 0 corresponderá a los </span>
+<span class="c1"># coeficientes al cuadrado de 16,17,18 y 19. </span>
+<span class="c1"># Estos coeficientes al cuadrado, corresponden a </span>
+<span class="c1"># la función que llammos &quot;enmedio&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\n[0,1,2,3,     # replica -4\n 4,5,6,7,     # replica -3\n 8, 9,10,11,  # replica -2\n 12,13,14,15, # replica -1\n 16,17,18,19, # replica 0\n 20,21,22,23, # replica 1\n 24,25,26,27, # replica 2\n 28,29,30,31, # replica 3\n 32,33,34,35] # replica 4\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># nband es el índice de la banda</span>
+<span class="c1"># nk es el índice de k</span>
+<span class="c1"># index es el término de las componentes (de la base)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">enmedio</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">nrepl</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">4</span><span class="o">//</span><span class="mi">2</span>
+<span class="n">Weight</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="n">nband</span><span class="p">,</span><span class="n">nk</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nband</span><span class="p">):</span>
+  <span class="k">for</span> <span class="n">ik</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nk</span><span class="p">):</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">U</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">ik</span><span class="p">][</span><span class="n">enmedio</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">conj</span><span class="p">(</span><span class="n">U</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">ik</span><span class="p">][</span><span class="n">enmedio</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>\
+      <span class="o">+</span> <span class="n">U</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">ik</span><span class="p">][</span><span class="n">enmedio</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">conj</span><span class="p">(</span><span class="n">U</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">ik</span><span class="p">][</span><span class="n">enmedio</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>\
+      <span class="o">+</span> <span class="n">U</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">ik</span><span class="p">][</span><span class="n">enmedio</span><span class="p">]</span><span class="o">*</span><span class="n">conj</span><span class="p">(</span><span class="n">U</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">ik</span><span class="p">][</span><span class="n">enmedio</span><span class="p">])</span>\
+      <span class="o">+</span> <span class="n">U</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">ik</span><span class="p">][</span><span class="n">enmedio</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">conj</span><span class="p">(</span><span class="n">U</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">ik</span><span class="p">][</span><span class="n">enmedio</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">Weight</span><span class="p">[</span><span class="n">n</span><span class="p">,</span><span class="n">ik</span><span class="p">]</span> <span class="o">=</span> <span class="n">real</span><span class="p">(</span> <span class="n">w</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Bandstructure&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Band energy&quot;</span><span class="p">)</span>
+
+<span class="c1"># specify horizontal axis details</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">k_node</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">k_node</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="c1"># put tickmarks and labels at node positions</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">k_node</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">k_label</span><span class="p">)</span>
+<span class="c1"># add vertical lines at node positions</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">k_node</span><span class="p">)):</span>
+  <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">k_node</span><span class="p">[</span><span class="n">n</span><span class="p">],</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">((</span><span class="n">nrepl</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">4</span><span class="p">):</span>
+  <span class="n">indOrden</span> <span class="o">=</span> <span class="n">argsort</span><span class="p">(</span><span class="n">Weight</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
+  <span class="n">grafica</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span> <span class="p">(</span><span class="n">k_dist</span><span class="p">[</span><span class="n">indOrden</span><span class="p">],</span><span class="n">Ek</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">indOrden</span><span class="p">],</span><span class="n">c</span><span class="o">=</span><span class="n">Weight</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">indOrden</span><span class="p">],</span><span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Greys&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;HOTI-Floquet&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Path in k-space&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Energía de bandas&quot;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">grafica</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;mu_0=1.0.png&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done.
+</pre></div>
+</div>
+<img alt="_images/HOTI3D_TFloquet_23_1.png" src="_images/HOTI3D_TFloquet_23_1.png" />
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="modelo-finito">
+<h1>Modelo finito<a class="headerlink" href="#modelo-finito" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="n">len_0</span><span class="o">=</span><span class="mi">5</span>
+<span class="n">len_1</span><span class="o">=</span><span class="mi">5</span>
+<span class="n">len_2</span><span class="o">=</span><span class="mi">10</span>
+
+<span class="n">slab1</span> <span class="o">=</span> <span class="n">SinTiempo</span><span class="o">.</span><span class="n">cut_piece</span><span class="p">(</span><span class="n">len_1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">glue_edgs</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">slab2</span> <span class="o">=</span> <span class="n">slab1</span><span class="o">.</span><span class="n">cut_piece</span><span class="p">(</span><span class="n">len_0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">glue_edgs</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">]</span> <span class="p">]</span>
+<span class="p">(</span><span class="n">k_vec</span><span class="p">,</span><span class="n">k_dist</span><span class="p">,</span><span class="n">k_node</span><span class="p">)</span> <span class="o">=</span> <span class="n">slab2</span><span class="o">.</span><span class="n">k_path</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="mi">101</span><span class="p">,</span><span class="n">report</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">Ek</span><span class="p">,</span><span class="n">U</span> <span class="o">=</span> <span class="n">slab2</span><span class="o">.</span><span class="n">solve_all</span><span class="p">(</span><span class="n">k_vec</span><span class="p">,</span><span class="n">eig_vectors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3min 28s, sys: 26.7 s, total: 3min 55s
+Wall time: 2min 4s
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Ek</span><span class="p">)):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">k_dist</span><span class="p">,</span> <span class="n">Ek</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">k_dist</span><span class="p">,</span> <span class="n">Ek</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">Ek</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span> <span class="p">],</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">k_dist</span><span class="p">,</span> <span class="n">Ek</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">Ek</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;HOTI-Floquet.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/HOTI3D_TFloquet_26_0.png" src="_images/HOTI3D_TFloquet_26_0.png" />
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="HOTI_3D_Natali_.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Aislantes topológicos de orden superior</p>
+        </div>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

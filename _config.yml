@@ -1,5 +1,6 @@
 # archivo: _config.yml
 title: "Aislantes topológicos de orden superior"
+author: "Natali Monserrat Melgarejo Rivero"
 logo : images/FQ-bw.png
 execute:
   execute_notebooks: "off"
